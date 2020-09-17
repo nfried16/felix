@@ -1,5 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
+const url = "http://localhost:5000";
 class Counter extends React.Component {
 
     state = {
@@ -7,6 +9,9 @@ class Counter extends React.Component {
     }
 
     update = () => {
+        axios.get(url + '/count', (res, err) => {
+            console.log(res);
+        })
         this.setState({count: this.state.count + 1});
     }
 
