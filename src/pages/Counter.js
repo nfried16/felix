@@ -22,11 +22,12 @@ class Counter extends React.Component {
         likes: [],
     }
 
-    name = '';
+    name = null;
 
     async componentDidMount() {
         this.name = localStorage.getItem('name');
         if(!this.name) {
+            this.name = null;
             this.setState({showModal: true});
         }
         const res = await this.getCount();
@@ -68,6 +69,11 @@ class Counter extends React.Component {
     }
 
     update = async () => {
+        console.log(!this.name);
+        if(!this.name) {
+            this.setState({showModal: true});
+            return;
+        }
         this.setState({loading: true});
         await axios.post(url + '/count')
             .then(res => {
@@ -115,7 +121,7 @@ class Counter extends React.Component {
                     })}
                 </div>
                 <Modal
-                    title="Basic Modal"
+                    title="Enter name"
                     visible={this.state.showModal}
                     onOk={this.handleOk}
                     onCancel={() => this.setState({showModal: false})}>
