@@ -19,11 +19,24 @@ class Counter extends React.Component {
         loading: true,
         showModal: false,
         name: '',
+        likes: [],
     }
 
     name = '';
 
-    async getCount() {
+    async componentDidMount() {
+        this.name = localStorage.getItem('name');
+        if(!this.name) {
+            this.setState({showModal: true});
+        }
+        const res = await this.getCount();
+        const likes = await this.getLikes();
+        this.setState({likes: likes});
+        this.setState({count: res});
+        this.setState({loading: false});
+    }
+
+    getCount = async () => {
         const res = await axios.get(url + '/count')
             .then(res => {
                 // console.log(res);
@@ -42,14 +55,16 @@ class Counter extends React.Component {
         localStorage.setItem('name', this.name);
     }
 
-    async componentDidMount() {
-        this.name = localStorage.getItem('name');
-        if(!this.name) {
-            this.setState({showModal: true});
-        }
-        const res = await this.getCount();
-        this.setState({count: res});
-        this.setState({loading: false});
+    getLikes = async () => {
+        const res = await axios.get(url + '/like')
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                return this.state.count;
+            });
+        console.log(res);
+        return res;
     }
 
     update = async () => {
@@ -61,10 +76,18 @@ class Counter extends React.Component {
             .catch(err => {
 
             });
+        await axios.post(url + '/like', {
+            name: this.name
+        })
+            .then(res => {
+                // console.log(res.data);
+            })
+            .catch(err => {
+
+            });
         const res = await this.getCount();
-        this.setState({count: res});
-        this.setState({imageF: (this.state.imageF +1)%4});
-        this.setState({loading: false});
+        const likes = await this.getLikes();
+        this.setState({likes: likes, count: res, imageF: (this.state.imageF +1)%4, loading: false});
     }
 
     render() {
@@ -82,6 +105,15 @@ class Counter extends React.Component {
                     }
                 </div>
                 <img src = {arr[this.state.imageF]} className = 'imagef'/>
+                <div style = {{margin: 20}}>
+                    {this.state.likes.map(like => {
+                        return(
+                            <div>
+                                {`${like.name} thought of felix on ${new Date(like.time).toLocaleString()}`}
+                            </div>
+                        )
+                    })}
+                </div>
                 <Modal
                     title="Basic Modal"
                     visible={this.state.showModal}
