@@ -30,6 +30,9 @@ class Counter extends React.Component {
             this.name = null;
             this.setState({showModal: true});
         }
+        else {
+            this.setState({name: this.name});
+        }
         const res = await this.getCount();
         const likes = await this.getLikes();
         this.setState({likes: likes});
@@ -96,9 +99,17 @@ class Counter extends React.Component {
         this.setState({likes: likes, count: res, imageF: (this.state.imageF +1)%4, loading: false});
     }
 
+    changeName = () => {
+        this.name = null;
+        this.setState({showModal: true});
+    }
+
     render() {
         return(
             <div style = {{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                <div style = {{position: 'absolute', left: 0, top: 0, height: '3vw', width: '3vw', cursor: 'pointer'}}
+                    onClick = {this.changeName}
+                />
                 <div className = 'counter'
                     onClick = {this.update}>
                     {!this.state.loading ?
