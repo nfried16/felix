@@ -5,7 +5,8 @@ const url = "http://localhost:5000";
 class Counter extends React.Component {
 
     state = {
-        count: 0
+        count: 0,
+        imageF: 0,
     }
 
     update = () => {
@@ -13,6 +14,7 @@ class Counter extends React.Component {
             console.log(res);
         })
         this.setState({count: this.state.count + 1});
+        this.setState({imageF: (this.state.imageF +1)%4});
     }
 
     render() {
@@ -21,6 +23,9 @@ class Counter extends React.Component {
                 <div className = 'counter'
                     onClick = {this.update}>
                     {this.state.count}
+                </div>
+                <div className = {"f"+this.state.imageF}>
+
                 </div>
             </div>
         )

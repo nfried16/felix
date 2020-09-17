@@ -54,3 +54,27 @@
   -ms-user-select: none;
   user-select: none;
 }
+.f0{
+  background-image: url('f0.png');
+  transform: scale(0.5);
+  width:734px;
+  height:914px;
+}
+.f1{
+  background-image: url('f1.png');
+  transform: scale(0.5);
+  width:734px;
+  height:914px;
+}
+.f2{
+  background-image: url('f2.png');
+  transform: scale(0.5);
+  width:734px;
+  height:914px;
+}
+.f3{
+  background-image: url('f3.png');
+  transform: scale(0.5);
+  width:734px;
+  height:914px;
+}
