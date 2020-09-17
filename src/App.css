@@ -40,12 +40,13 @@
 .counter {
   width: 100px;
   height: 100px;
-  background: red;
+  background: #C2B83A;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin: 5vh;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -54,27 +55,8 @@
   -ms-user-select: none;
   user-select: none;
 }
-.f0{
-  background-image: url('f0.png');
-  transform: scale(0.5);
-  width:734px;
-  height:914px;
-}
-.f1{
-  background-image: url('f1.png');
-  transform: scale(0.5);
-  width:734px;
-  height:914px;
-}
-.f2{
-  background-image: url('f2.png');
-  transform: scale(0.5);
-  width:734px;
-  height:914px;
-}
-.f3{
-  background-image: url('f3.png');
-  transform: scale(0.5);
-  width:734px;
-  height:914px;
+
+.imagef {
+  height: calc(40vh*1.25);
+  width: 40vh;
 }
