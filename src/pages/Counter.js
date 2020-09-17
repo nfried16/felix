@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const url = "http://localhost:5000";
+const url = "https://felix-jiang-backend.herokuapp.com";
 class Counter extends React.Component {
 
     state = {
@@ -9,10 +9,26 @@ class Counter extends React.Component {
         imageF: 0,
     }
 
-    update = () => {
-        axios.get(url + '/count', (res, err) => {
-            console.log(res);
-        })
+    async componentDidMount() {
+        const res = await axios.get(url + '/count')
+            .then(res => {
+                console.log(res);
+                return res.data;
+            })
+            .catch(err => {
+                return this.state.count;
+            });
+        this.setState({count: res});
+    }
+
+    update = async () => {
+        await axios.post(url + '/count')
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+
+            });
         this.setState({count: this.state.count + 1});
         this.setState({imageF: (this.state.imageF +1)%4});
     }
