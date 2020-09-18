@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -38,8 +39,8 @@
 }
 
 .counter {
-  width: 100px;
-  height: 100px;
+  width: 10vw;
+  height: 10vw;
   background: #C2B83A;
   border-radius: 5px;
   display: flex;
@@ -47,6 +48,9 @@
   justify-content: center;
   cursor: pointer;
   margin: 5vh;
+  
+  font-size: 1.2rem;
+  font-weight: bold;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -59,4 +63,17 @@
 .imagef {
   height: calc(40vh*1.25);
   width: 40vh;
+}
+
+@keyframes example {
+  from   {top:0px;}
+  to {top: calc(100% - 150px);}
+}
+
+/* The element to apply the animation to */
+.animation {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  animation: example linear infinite;
 }

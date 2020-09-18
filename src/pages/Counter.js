@@ -20,6 +20,7 @@ class Counter extends React.Component {
         showModal: false,
         name: '',
         likes: [],
+        height: 0,
     }
 
     name = null;
@@ -106,7 +107,7 @@ class Counter extends React.Component {
 
     render() {
         return(
-            <div style = {{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <div style = {{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}} id = 'main'>
                 <div style = {{position: 'absolute', left: 0, top: 0, height: '3vw', width: '3vw', cursor: 'pointer'}}
                     onClick = {this.changeName}
                 />
@@ -122,7 +123,7 @@ class Counter extends React.Component {
                     }
                 </div>
                 <img src = {arr[this.state.imageF]} className = 'imagef'/>
-                <div style = {{margin: 20}}>
+                <div style = {{margin: 20, background: 'white', padding: 20, borderRadius: 5}}>
                     {this.state.likes.map(like => {
                         return(
                             <div>
