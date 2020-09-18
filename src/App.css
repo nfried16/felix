@@ -64,13 +64,13 @@
 
 @keyframes example {
   from   {top:0px;}
-  to {top: calc(100% - 150px);}
+  to {top: calc(100% - 100px);}
 }
 
 /* The element to apply the animation to */
 .animation {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   animation: example linear infinite;
 }

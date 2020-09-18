@@ -21,7 +21,7 @@ class Background extends React.Component {
                 {this.positions.map(block => {
                     return (
                         <div style = {{positon: 'absolute', width: 0, height: 0}}>
-                            <img src = {crop} className = 'animation' style = {{left: block[0]*(window.innerWidth-150), animationDuration: block[1], animationDelay: block[2]}}/>
+                            <img src = {crop} className = 'animation' style = {{left: block[0]*(window.innerWidth-100), animationDuration: block[1], animationDelay: block[2]}}/>
                         </div>
                     )
                 })}
