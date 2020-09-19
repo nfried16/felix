@@ -17,11 +17,11 @@ class Background extends React.Component {
 
     render() {
         return(
-            <div style = {{height: '100vh', width: '100vw', background: this.props.color || '#00539B', position: 'fixed', zIndex: -1}} id = 'canvas'>
+            <div style = {{height: '100vh', width: '100vw', background: this.props.color || '#00539B', position: 'fixed', zIndex: -1, overflow: 'hidden'}} id = 'canvas'>
                 {this.positions.map(block => {
                     return (
                         <div style = {{positon: 'absolute', width: 0, height: 0}}>
-                            <img src = {crop} className = 'animation' style = {{left: block[0]*(window.innerWidth-100), animationDuration: block[1], animationDelay: block[2]}}/>
+                            <img src = {crop} className = 'animation' style = {{left: block[0]*(window.innerWidth+100)-100, animationDuration: block[1], animationDelay: block[2]}}/>
                         </div>
                     )
                 })}

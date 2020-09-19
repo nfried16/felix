@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import {Modal, Input} from 'antd';
+import {Modal, Input, Button} from 'antd';
 import 'antd/dist/antd.css';
 
 const f0 = require("../felix/f0.png");
@@ -111,14 +111,14 @@ class Counter extends React.Component {
                 <div style = {{position: 'absolute', left: 0, top: 0, height: '3vw', width: '3vw', cursor: 'pointer'}}
                     onClick = {this.changeName}
                 />
-                <div className = 'counter'
+                <div className = 'counter' height = '20vh' width = '20vh'
                     onClick = {this.update}>
                     {!this.state.loading ?
                         (
                             this.state.count
                         ) :
                         (
-                            <ReactLoading type='spin' color='blue' height='25%' width='25%' />
+                                <ReactLoading type='spin' color='blue' height='25%' width='25%'/>
                         )
                     }
                 </div>

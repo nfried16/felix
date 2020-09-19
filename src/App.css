@@ -39,15 +39,17 @@
 }
 
 .counter {
-  width: 20vw;
-  height: 20vw;
-  background: #C2B83A;
+  width: 20vh!important;
+  height: 20vh!important;
+  background: #F1F1F1;
+  border-style: inset;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin: 5vh;
+  font-size: 1.5rem;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -60,11 +62,12 @@
 .imagef {
   height: calc(40vh*1.25);
   width: 40vh;
+  border-radius: 10px;
 }
 
 @keyframes example {
-  from   {top:0px;}
-  to {top: calc(100% - 100px);}
+  from   {top:-100px;}
+  to {top: 100%;}
 }
 
 /* The element to apply the animation to */
