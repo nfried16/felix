@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Felix App
+
+Click the button every time you think of Felix :)
+https://felix.cash/
+
 ## Available Scripts
 
 In the project directory, you can run:
